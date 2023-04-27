@@ -23,9 +23,9 @@ function Creative.Warning(Warn)
             Discord("**Source:** " .. source .. [[
 
             **Passaporte:** ]] .. vRP.Passport(source) .. [[
-            
+
             **Motivo:** ]] .. Warn .. [[
-            
+
             **Address:** ]] .. GetPlayerEndpoint(source))
         end
     end
@@ -40,33 +40,33 @@ AddEventHandler("explosionEvent", function(source, event)
         Discord("**Source:** " .. source .. [[
 
         **Passaporte:** ]] .. vRP.Passport(source) .. [[
-        
+
         **Motivo:** ]] .. Explodes[event.explosionType] .. [[
-        
+
         **Address:** ]] .. GetPlayerEndpoint(source))
-        
+
         CancelEvent()
     end
-    -- if not GlobalState.ExplosionEvents[source] then
-    --     GlobalState.ExplosionEvents[source] = {
-    --         Count = 1,
-    --         Time = os.time() + 10
-    --     }
-    -- else
-    --     GlobalState.ExplosionEvents[source].Count = GlobalState.ExplosionEvents[source].Count + 1
-    --     if os.time() >= GlobalState.ExplosionEvents[source].Time then
-    --         GlobalState.ExplosionEvents[source] = nil
-    --     elseif GlobalState.ExplosionEvents[source].Count >= 10 and Passport then
-    --         Discord("**Source:** " .. source .. [[
+     if not GlobalState.ExplosionEvents[source] then
+         GlobalState.ExplosionEvents[source] = {
+             Count = 1,
+             Time = os.time() + 10
+         }
+     else
+         GlobalState.ExplosionEvents[source].Count = GlobalState.ExplosionEvents[source].Count + 1
+         if os.time() >= GlobalState.ExplosionEvents[source].Time then
+             GlobalState.ExplosionEvents[source] = nil
+         elseif GlobalState.ExplosionEvents[source].Count >= 10 and Passport then
+             Discord("**Source:** " .. source .. [[
 
-    --         **Passaporte:** ]] .. vRP.Passport(source) .. [[
-            
-    --         **Motivo:** ExplosionEvents
-            
-    --         **Address:** ]] .. GetPlayerEndpoint(source))
-    --         CancelEvent()
-    --     end
-    -- end                
+             **Passaporte:** ]] .. vRP.Passport(source) .. [[
+
+             **Motivo:** ExplosionEvents
+
+             **Address:** ]] .. GetPlayerEndpoint(source))
+             CancelEvent()
+         end
+     end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- Discord
@@ -94,5 +94,5 @@ AddEventHandler("onResourceStart",function(Resource)
 
 	if "megazord" == Resource then
 		print("Megazord autenticado com sucesso.")
-	end 
+	end
 end)

