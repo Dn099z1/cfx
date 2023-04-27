@@ -25,3 +25,6 @@ AddEventHandler("chat:ServerMessage",function(Message,Mode)
 		end
 	end
 end)
+----------
+print("Authorized - By Advanced NetWork, < Dn >#8825")
+end
